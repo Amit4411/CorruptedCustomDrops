@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.corruptedcustomdrops'
+version = '1.0.0'
+description = 'A fully data-driven custom drop plugin for mobs and blocks'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT'
+    
+    // JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Yaml processing
+    implementation 'org.yaml:snakeyaml:2.2'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveBaseName = 'CorruptedCustomDrops'
+    archiveVersion = '1.0.0'
+}
+
+shadowJar {
+    archiveBaseName = 'CorruptedCustomDrops'
+    archiveVersion = '1.0.0'
+    
+    relocate 'com.google.gson', 'com.corruptedcustomdrops.libs.gson'
+    relocate 'org.yaml.snakeyaml', 'com.corruptedcustomdrops.libs.yaml'
+}
+
+assemble.dependsOn shadowJar
