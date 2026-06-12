@@ -1,0 +1,34 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: 21
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Make gradlew executable
+      run: chmod +x gradlew
+
+    - name: Run build checks
+      run: ./gradlew check
+
+    - name: Print test results
+      if: always()
+      run: |
+        echo "✅ Code quality checks completed"
+        echo "Check the Actions tab for detailed results"
