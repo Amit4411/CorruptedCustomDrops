@@ -1,0 +1,44 @@
+name: CorruptedCustomDrops
+version: 1.0.0
+main: com.corruptedcustomdrops.CorruptedCustomDropsPlugin
+description: A fully data-driven custom drop plugin for mobs and blocks
+authors:
+  - Amit4411
+api-version: 1.21
+
+commands:
+  ccd:
+    description: Main command for CorruptedCustomDrops
+    usage: /ccd <add|edit|remove|gui|reload> [type] [name]
+    aliases:
+      - customdrops
+    permission: ccd.admin
+
+permissions:
+  ccd.admin:
+    description: Access to all CCD commands
+    default: op
+  ccd.gui:
+    description: Access to CCD GUI
+    default: op
+  ccd.reload:
+    description: Reload CCD configuration
+    default: op
+  ccd.mob.edit:
+    description: Edit mob configurations
+    default: op
+  ccd.mob.add:
+    description: Add mob configurations
+    default: op
+  ccd.mob.remove:
+    description: Remove mob configurations
+    default: op
+  ccd.block.edit:
+    description: Edit block configurations
+    default: op
+  ccd.block.add:
+    description: Add block configurations
+    default: op
+  ccd.block.remove:
+    description: Remove block configurations
+    default: op
