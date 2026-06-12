@@ -1,0 +1,63 @@
+# .gitignore
+
+# Gradle
+.gradle/
+build/
+out/
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.asc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Plugin runtime
+plugins/CorruptedCustomDrops/
+plugins/
+server.properties
+server.log
+eula.txt
+
+# Java
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# Local environment
+.env
+.env.local
